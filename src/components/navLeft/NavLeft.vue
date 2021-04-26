@@ -81,6 +81,7 @@ let end = (e: any) => {
     i.config.field = `field${components.value.length + 100}`
     store.commit('setActiveIndex', components.value.length - 1)
     store.commit('setComponentList', components.value)
+
     store.commit('setCurrentComponent', componentList[index.value])
   }
 }

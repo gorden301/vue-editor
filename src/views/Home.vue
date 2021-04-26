@@ -8,6 +8,7 @@
         </el-aside>
         <el-main>
           <nav-main></nav-main>
+          <!-- <preview-dialog></preview-dialog> -->
         </el-main>
       </el-container>
     </el-container>
@@ -22,6 +23,7 @@ import NavHeader from '@/components/navHeader/NavHeader.vue'
 import NavLeft from '@/components/navLeft/NavLeft.vue'
 import NavMain from '@/components/navMain/NavMain.vue'
 import NavRight from '@/components/navRight/NavRight.vue'
+
 </script>
 
 <style lang='scss' scoped>
