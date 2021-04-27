@@ -238,7 +238,7 @@
 <script lang='ts' setup>
 import { useStore } from "vuex";
 import { computed, nextTick, ref, watchEffect, defineProps } from "vue";
-import { Component } from "@/types";
+import { Component } from "../../@types/index";
 import cloneDeep from "lodash/cloneDeep";
 
 const props = defineProps({

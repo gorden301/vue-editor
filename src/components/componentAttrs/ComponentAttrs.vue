@@ -663,7 +663,7 @@
 <script lang='ts' setup>
 import { computed, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
-import { Children, Component } from '../../types/index'
+import { Children, Component } from '../../@types/index'
 import iconList from '@/config/icon'
 import dayjs from 'dayjs'
 

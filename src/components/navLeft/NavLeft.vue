@@ -24,19 +24,19 @@
         </div>
       </template>
     </draggable>
-    <render></render>
+    <!-- <render></render> -->
   </div>
 </template>
 
 <script lang='ts' setup>
-import { Component } from '@/types'
+import { Component } from '../../@types/index'
 import { componentList } from '../../config/componentList'
 import draggable from 'vuedraggable'
 import { ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import cloneDeep from 'lodash/cloneDeep'
-import render from '@/views/render/Render.vue'
+// import render from '@/views/render/Render.vue'
 
 let store = useStore()
 

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useStore } from 'vuex'
-import { Component } from '@/types'
+import { Component } from '../../@types/index'
 
 let store = useStore()
 let componentList = computed(() => store.state.componentList)
