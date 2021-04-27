@@ -1,4 +1,4 @@
-import { Component } from '../types/index'
+import { Component } from '../@types/index'
 export const componentList: Component[] = [
   {
     type: 'input',
