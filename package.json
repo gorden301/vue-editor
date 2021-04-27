@@ -1,5 +1,5 @@
 {
-  "name": "xd-editor",
+  "name": "@xdapp/form-editor",
   "version": "0.1.0",
   "description": "表单编辑器",
   "author": "cjw",

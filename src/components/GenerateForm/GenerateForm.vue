@@ -243,6 +243,7 @@ import cloneDeep from "lodash/cloneDeep";
 
 const props = defineProps({
     drawerVisible: Boolean,
+    componentListData: Array
 });
 let store = useStore();
 let e = ref<boolean>(false);

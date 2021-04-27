@@ -668,7 +668,6 @@ import iconList from '@/config/icon'
 import dayjs from 'dayjs'
 
 let store = useStore()
-
 let componentList = computed(() => store.state.componentList)
 let activeIndex = computed(() => store.state.activeIndex)
 let editor = computed(() => store.state.editor)
