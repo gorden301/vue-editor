@@ -3,7 +3,7 @@
 </template>
 
 <script lang='ts' setup>
-import xdEditor from '../src/components/index'
+import xdEditor from '../src/index'
 </script>
 <style lang="scss">
  @import '../src/styles/base';
