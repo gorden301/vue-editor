@@ -22,7 +22,9 @@
         </el-container>
     </div>
 </template>
-
+<script lang="ts">
+export default { name: "xdEditor" };
+</script>
 <script lang='ts' setup>
 import { computed, nextTick, ref, watchEffect, defineProps } from "vue";
 import NavHeader from "@/components/navHeader/NavHeader.vue";
