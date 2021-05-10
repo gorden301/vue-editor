@@ -19,10 +19,10 @@
 </template>
 
 <script lang='ts' setup>
-import NavHeader from '@/components/navHeader/NavHeader.vue'
-import NavLeft from '@/components/navLeft/NavLeft.vue'
-import NavMain from '@/components/navMain/NavMain.vue'
-import NavRight from '@/components/navRight/NavRight.vue'
+import NavHeader from '../components/navHeader/NavHeader.vue'
+import NavLeft from '../components/navLeft/NavLeft.vue'
+import NavMain from '../components/navMain/NavMain.vue'
+import NavRight from '../components/navRight/NavRight.vue'
 
 </script>
 

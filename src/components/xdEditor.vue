@@ -27,11 +27,11 @@ export default { name: "xdEditor" };
 </script>
 <script lang='ts' setup>
 import { computed, nextTick, ref, watchEffect, defineProps } from "vue";
-import NavHeader from "@/components/navHeader/NavHeader.vue";
-import NavLeft from "@/components/navLeft/NavLeft.vue";
-import NavMain from "@/components/navMain/NavMain.vue";
-import NavRight from "@/components/navRight/NavRight.vue";
-import GenerateForm from "@/components/GenerateForm/GenerateForm.vue";
+import NavHeader from "./navHeader/NavHeader.vue";
+import NavLeft from "./navLeft/NavLeft.vue";
+import NavMain from "./navMain/NavMain.vue";
+import NavRight from "./navRight/NavRight.vue";
+import GenerateForm from "./GenerateForm/GenerateForm.vue";
 
 const props = defineProps({
     componentType: String,

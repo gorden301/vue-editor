@@ -49,7 +49,7 @@
 import { useStore } from "vuex";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { computed, ref } from "vue";
-import GenerateForm from "@/components/GenerateForm/GenerateForm.vue";
+import GenerateForm from "../GenerateForm/GenerateForm.vue";
 
 let store = useStore();
 let componentList = computed(() => store.state.componentList);
