@@ -17,4 +17,6 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 
 (xdEditor as any).install = install
 
-export default xdEditor;
+export default {
+    install
+};
