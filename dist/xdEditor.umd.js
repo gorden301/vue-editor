@@ -50505,7 +50505,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 xdEditor.install = install;
-/* harmony default export */ var src_0 = (xdEditor);
+/* harmony default export */ var src_0 = ({
+  install: install
+});
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
