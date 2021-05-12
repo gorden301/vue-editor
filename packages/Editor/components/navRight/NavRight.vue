@@ -11,10 +11,11 @@
 
 <script lang='ts' setup>
 import { ref } from 'vue'
-import componentAttrs from '../componentAttrs/ComponentAttrs.vue'
+import componentAttrs from '../componentAttrs/index.vue'
 
 let activeName = ref<string>('component')
 </script>
+
 
 <style lang='scss' scoped>
 .right {

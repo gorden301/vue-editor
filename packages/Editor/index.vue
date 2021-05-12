@@ -17,9 +17,9 @@
                 <nav-right></nav-right>
             </el-aside>
         </el-container>
-        <el-container v-else>
+        <!-- <el-container v-else>
             <generate-form></generate-form>
-        </el-container>
+        </el-container> -->
     </div>
 </template>
 <script lang="ts">
@@ -27,11 +27,11 @@ export default { name: "xdEditor" };
 </script>
 <script lang='ts' setup>
 import { computed, nextTick, ref, watchEffect, defineProps } from "vue";
-import NavHeader from "./navHeader/NavHeader.vue";
-import NavLeft from "./navLeft/NavLeft.vue";
-import NavMain from "./navMain/NavMain.vue";
-import NavRight from "./navRight/NavRight.vue";
-import GenerateForm from "./GenerateForm/GenerateForm.vue";
+import NavHeader from "./components/navHeader/NavHeader.vue";
+import NavLeft from "./components/navLeft/NavLeft.vue";
+import NavMain from "./components/navMain/NavMain.vue";
+import NavRight from "./components/navRight/NavRight.vue";
+// import GenerateForm from "../Generator/index.vue";
 
 const props = defineProps({
     componentType: String,

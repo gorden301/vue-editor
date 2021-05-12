@@ -663,8 +663,8 @@
 <script lang='ts' setup>
 import { computed, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
-import { Children, Component } from '../../@types/index'
-import iconList from '../../config/icon'
+import { Children, Component } from '../../../../src/@types/index'
+import iconList from '../../../../src/config/icon'
 import dayjs from 'dayjs'
 
 let store = useStore()

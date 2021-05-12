@@ -1,6 +1,7 @@
-import xdEditor from './components/xdEditor.vue';
+import xdEditor from './Editor';
+import Generator from './Generator'
 
-const components = [xdEditor];
+const components = [xdEditor, Generator];
 
 const install = (Vue: any) => {
   if ((install as any).installed) return;
@@ -18,5 +19,7 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 (xdEditor as any).install = install
 
 export default {
-    install
+    install,
+    xdEditor,
+    Generator
 };

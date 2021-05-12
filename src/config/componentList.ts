@@ -4,6 +4,7 @@ export const componentList: Component[] = [
     type: 'input',
     label: '单行文本',
     icon: 'el-icon-document',
+    properties: {},
     config: {
       label: '单行文本',
       placeholder: '请输入单行文本',
@@ -27,6 +28,7 @@ export const componentList: Component[] = [
   {
     type: 'input',
     label: '多行文本',
+    properties: {},
     icon: 'el-icon-document',
     config: {
       label: '多行文本',
@@ -104,6 +106,7 @@ export const componentList: Component[] = [
   {
     type: 'select',
     label: '下拉选择',
+    properties: {},
     icon: 'el-icon-bottom',
     attrs: {},
     style: {
@@ -139,6 +142,7 @@ export const componentList: Component[] = [
   {
     type: 'checkbox-group',
     label: '多选框组',
+    properties: {},
     icon: 'el-icon-s-grid',
     attrs: {},
     style: {
@@ -177,6 +181,7 @@ export const componentList: Component[] = [
     label: '单选框组',
     icon: 'el-icon-check',
     attrs: {},
+    properties: {},
     style: {
       width: '100%'
     },
@@ -229,6 +234,7 @@ export const componentList: Component[] = [
   {
     type: 'switch',
     label: '开关',
+    properties: {},
     icon: 'el-icon-switch-button',
     config: {
       label: '开关',
@@ -252,6 +258,7 @@ export const componentList: Component[] = [
     type: 'slider',
     label: '滑块',
     icon: 'el-icon-right',
+    properties: {},
     config: {
       label: '滑块',
       value: 0,
@@ -272,6 +279,7 @@ export const componentList: Component[] = [
   {
     type: 'rate',
     label: '评分',
+    properties: {},
     icon: 'el-icon-star-off',
     config: {
       label: '评分',
@@ -293,6 +301,7 @@ export const componentList: Component[] = [
     type: 'time-picker',
     label: '时间选择器',
     icon: 'el-icon-timer',
+    properties: {},
     config: {
       label: '时间选择器',
       placeholder: '请选择时间',
@@ -317,6 +326,7 @@ export const componentList: Component[] = [
     type: 'date-picker',
     label: '日期选择器',
     icon: 'el-icon-date',
+    properties: {},
     config: {
       label: '日期选择器',
       placeholder: '请选择日期',

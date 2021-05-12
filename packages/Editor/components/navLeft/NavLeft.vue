@@ -29,8 +29,8 @@
 </template>
 
 <script lang='ts' setup>
-import { Component } from '../../@types/index'
-import { componentList } from '../../config/componentList'
+import { Component } from '../../../../src/@types/index'
+import { componentList } from '../../../../src/config/componentList'
 import draggable from 'vuedraggable'
 import { ref } from '@vue/reactivity'
 import { useStore } from 'vuex'

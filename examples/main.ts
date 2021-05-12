@@ -5,5 +5,7 @@ import ElementUI from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
 import 'dayjs/locale/zh-cn'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
+import xdUi from '../packages/index'
+let app = createApp(App)
 
-createApp(App).use(ElementUI, {locale}).use(store).mount('#app')
+app.use(ElementUI, {locale}).use(store).use(xdUi).mount('#app')

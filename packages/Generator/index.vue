@@ -234,11 +234,13 @@
         <!-- </el-drawer> -->
     </div>
 </template>
-
+<script lang="ts">
+export default { name: "Generator" };
+</script>
 <script lang='ts' setup>
 import { useStore } from "vuex";
 import { computed, nextTick, ref, watchEffect, defineProps } from "vue";
-import { Component } from "../../@types/index";
+import { Component } from "../../src/@types/index.ts";
 import cloneDeep from "lodash/cloneDeep";
 
 const props = defineProps({

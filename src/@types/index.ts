@@ -131,6 +131,7 @@ export interface Component {
   'month' | 'date' | 'dates' | 'wee' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange',
   // 左侧组件列表中显示的名字
   label: string,
+  properties: object,
   // 左侧组件列表中显示的名字
   icon: string,
   // 组件属性配置

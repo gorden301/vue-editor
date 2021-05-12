@@ -206,7 +206,7 @@
 <script lang='ts' setup>
 import { useStore } from 'vuex'
 import { computed, nextTick, ref, watchEffect } from 'vue'
-import { Component } from '../../@types/index'
+import { Component } from '../../../../src/@types/index'
 import cloneDeep from 'lodash/cloneDeep'
 import draggable from 'vuedraggable'
 import E from 'wangeditor'

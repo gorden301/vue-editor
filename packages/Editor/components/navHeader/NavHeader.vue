@@ -7,7 +7,7 @@
                 direction="rtl"
                 size="50%"
             >
-                <generate-form :drawerVisible="drawerVisible"></generate-form>
+                <generator :drawerVisible="drawerVisible"></generator>
             </el-drawer>
         </div>
         <div class="flex a-center action c-p">
@@ -49,7 +49,7 @@
 import { useStore } from "vuex";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { computed, ref } from "vue";
-import GenerateForm from "../GenerateForm/GenerateForm.vue";
+import Generator from "../../../Generator/index.vue";
 
 let store = useStore();
 let componentList = computed(() => store.state.componentList);
