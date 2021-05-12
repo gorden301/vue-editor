@@ -5,11 +5,11 @@
   "author": "cjw",
   "private": false,
   "main": "dist/xdEditor.common.js",
-  "module": "src/index.ts",
+  "module": "packages/index.ts",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name xdEditor ./src/index.ts"
+    "lib": "vue-cli-service build --target lib --name xdEditor ./packages/index.ts"
   },
   "files": [
       "dist",
