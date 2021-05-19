@@ -13,7 +13,7 @@
                     </el-main>
                 </el-container>
             </el-container>
-            <el-aside width="360px">
+            <el-aside width="400px">
                 <nav-right></nav-right>
             </el-aside>
         </el-container>

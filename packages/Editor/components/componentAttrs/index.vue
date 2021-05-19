@@ -1,28 +1,31 @@
 <template>
-  <div class="container">
-    <el-scrollbar>
+  <div class="container" style="height:800px;">
+    <el-scrollbar max-height="800px">
       <el-form class="scroll" label-width="90px" v-if="currentComponent">
-        <el-form-item label="组件类型">
+       <el-form-item v-for="(value, key) in currentComponent.properties" :label="value.name" :key="key">
+            <component :is="attrList[attrList.findIndex(k => { return k.name == value.ui.widget })].component" :objKey="key" :obj="value" :currentComponent="currentComponent"></component>
+        </el-form-item>
+        <!-- <el-form-item label="组件类型">
           <el-input
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.type"
           ></el-input>
-        </el-form-item>
-        <el-form-item label="字段名">
+        </el-form-item> -->
+        <!-- <el-form-item label="字段名">
           <el-input
             placeholder="请输入字段名"
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.field"
           ></el-input>
-        </el-form-item>
-        <el-form-item label="标题">
+        </el-form-item> -->
+        <!-- <el-form-item label="标题">
           <el-input
             placeholder="请输入标题"
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.label"
           ></el-input>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="占位提示"
           v-if="currentComponent.type !== 'button' &&
           currentComponent.type !== 'editor'"
@@ -31,14 +34,14 @@
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.placeholder"
           ></el-input>
-        </el-form-item>
-        <el-form-item label="表单栅格" style="padding-right: 10px">
+        </el-form-item> -->
+        <!-- <el-form-item label="表单栅格" style="padding-right: 10px">
           <el-slider
             :max="24"
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.col"
           ></el-slider>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="标签宽度">
           <el-input-number
             placeholder="请输入标签宽度"
@@ -46,14 +49,14 @@
             v-model="currentComponent.config.labelWidth"
           ></el-input-number>
         </el-form-item>
-        <el-form-item label="组件宽度">
+        <!-- <el-form-item label="组件宽度">
           <el-input
             placeholder="请输入组件宽度"
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.componentWidth"
           ></el-input>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="默认值"
           v-if="
             currentComponent.type !== 'time-picker' &&
@@ -66,8 +69,8 @@
             @input="handleChange(currentComponent, 'editor', $event)"
             v-model="currentComponent.config.value"
           ></el-input>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="默认值"
           v-if="
             currentComponent.type === 'time-picker' ||
@@ -80,8 +83,8 @@
             @input="handleChange(currentComponent)"
             v-model="timeValue"
           ></el-input>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="前缀"
           v-if="currentComponent.config.label === '单行文本'"
         >
@@ -100,8 +103,8 @@
             @input="handleChange(currentComponent)"
             v-model="currentComponent.config.append"
           ></el-input>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="前图标"
           v-if="currentComponent.config.label === '单行文本'"
         >
@@ -140,7 +143,7 @@
               >
             </template>
           </el-input>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="最多输入" v-if="currentComponent.type === 'input'">
           <el-input
             @input="handleChange(currentComponent)"
@@ -150,14 +153,14 @@
             <template #append> 个字符 </template>
           </el-input>
         </el-form-item>
-        <template
+        <!-- <template
           v-if="
             currentComponent.type === 'select' ||
             currentComponent.type === 'checkbox-group'
           "
-        >
-          <el-divider>选项</el-divider>
-          <template
+        > -->
+          <!-- <el-divider>选项</el-divider> -->
+          <!-- <template
             v-for="(item, index) in currentComponent.config.children"
             :key="index"
           >
@@ -192,7 +195,7 @@
             <i class="el-icon-circle-plus-outline mr1 plus"></i>
             <el-button type="text" @click="addChild">添加选项</el-button>
           </div>
-        </template>
+        </template> -->
         <el-divider
           v-if="
             currentComponent.type === 'select' ||
@@ -218,7 +221,7 @@
             >
           </el-radio-group>
         </el-form-item>
-        <el-form-item
+        <!-- <el-form-item
           label="是否带边框"
           v-if="
             currentComponent.type === 'radio-group' ||
@@ -229,7 +232,7 @@
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.border"
           ></el-switch>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item
           label="组件尺寸"
           v-if="
@@ -578,13 +581,13 @@
             ></el-switch>
           </el-form-item>
         </template>
-        <el-form-item label="显示标签">
+        <!-- <el-form-item label="显示标签">
           <el-switch
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.showLabel"
           ></el-switch>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="能否清空"
           v-if="
             currentComponent.type === 'input' ||
@@ -595,14 +598,14 @@
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.clearable"
           ></el-switch>
-        </el-form-item>
-        <el-form-item label="是否禁用">
+        </el-form-item> -->
+        <!-- <el-form-item label="是否禁用">
           <el-switch
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.disabled"
           ></el-switch>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="是否只读"
           v-if="
             currentComponent.type === 'input' ||
@@ -614,8 +617,8 @@
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.readonly"
           ></el-switch>
-        </el-form-item>
-        <el-form-item
+        </el-form-item> -->
+        <!-- <el-form-item
           label="是否多选"
           v-if="currentComponent.type === 'select'"
         >
@@ -623,13 +626,13 @@
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.multiple"
           ></el-switch>
-        </el-form-item>
-        <el-form-item label="是否必填">
+        </el-form-item> -->
+        <!-- <el-form-item label="是否必填">
           <el-switch
             @change="handleChange(currentComponent)"
             v-model="currentComponent.config.required"
           ></el-switch>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <div v-else>暂无组件</div>
     </el-scrollbar>
@@ -666,6 +669,11 @@ import { useStore } from 'vuex'
 import { Children, Component } from '../../../../src/@types/index'
 import iconList from '../../../../src/config/icon'
 import dayjs from 'dayjs'
+import AttrInput from './input'
+import AttrSwitch from './switch'
+import AttrOptions from './options'
+import AttrSlider from './slider'
+import AttrInputNumber from './inputNumber'
 
 let store = useStore()
 let componentList = computed(() => store.state.componentList)
@@ -676,6 +684,8 @@ let visible = ref<boolean>(false)
 let icon = ref<string>('')
 /// 图标是前还是后
 let position = ref<string>('')
+
+const attrList = ref([{name: 'AttrInput', component: AttrInput}, {name: 'AttrSwitch', component: AttrSwitch }, {name: 'AttrOptions', component: AttrOptions}, {name: 'AttrSlider', component: AttrSlider}, {name: 'AttrInputNumber', component: AttrInputNumber}])
 
 // 获取当前点击的组件
 watchEffect(() => {
@@ -705,26 +715,26 @@ let chooseIcon = (item: string) => {
 }
 
 // 输入框变化时
-let handleChange = (item: Component, name?: string, e?: any) => {
-  if (
-    (item.type === 'date-picker' && !item.config.isRange) ||
-    (item.type === 'date-picker' && item.config.isRange)
-  ) {
-    item.config.value = ''
-  }
-  if (name === 'range') {
-    if (item.type === 'date-picker' && !item.config.isRange) {
-      item.config.type = 'date'
-    } else {
-      item.config.type = 'daterange'
-    }
-  }
-  if (name === 'editor') {
-    editor.value.txt.html(e)
-  }
-  store.commit('setComponentList', componentList.value)
-  store.commit('setCurrentComponent', currentComponent.value)
-}
+// let handleChange = (item: Component, name?: string, e?: any) => {
+//   if (
+//     (item.type === 'date-picker' && !item.config.isRange) ||
+//     (item.type === 'date-picker' && item.config.isRange)
+//   ) {
+//     item.config.value = ''
+//   }
+//   if (name === 'range') {
+//     if (item.type === 'date-picker' && !item.config.isRange) {
+//       item.config.type = 'date'
+//     } else {
+//       item.config.type = 'daterange'
+//     }
+//   }
+//   if (name === 'editor') {
+//     editor.value.txt.html(e)
+//   }
+//   store.commit('setComponentList', componentList.value)
+//   store.commit('setCurrentComponent', currentComponent.value)
+// }
 
 // 添加选项
 let addChild = () => {

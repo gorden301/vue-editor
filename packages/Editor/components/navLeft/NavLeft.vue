@@ -53,7 +53,7 @@ let index = ref<number>(-1)
 let clickItem = (item: Component) => {
   let i = cloneDeep(item)
   components.value.push(i)
-  i.config.field = `field${components.value.length + 100}`
+  i.properties.field.value = `field${components.value.length + 100}`
   store.commit('setActiveIndex', components.value.length - 1)
   store.commit('setComponentList', components.value)
   store.commit('setCurrentComponent', item)
@@ -71,14 +71,14 @@ let end = (e: any) => {
     endX.value - startX.value > 320 - startX.value &&
     endX.value - startX.value < document.body.clientWidth - 640
   ) {
-    componentList[index.value].config.field = `field${
+    componentList[index.value].properties.field.value = `field${
       components.value.length + 100
     }`
     // 把当前元素添加进组件列表
     let i = cloneDeep(componentList[index.value])
     components.value.push(i)
     // 设置当前点击的下标
-    i.config.field = `field${components.value.length + 100}`
+    i.properties.field.value = `field${components.value.length + 100}`
     store.commit('setActiveIndex', components.value.length - 1)
     store.commit('setComponentList', components.value)
 

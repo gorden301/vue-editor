@@ -4,7 +4,7 @@
       <draggable v-model="componentList" group="people" item-key="id">
         <template #item="{ element: item, index }">
           <el-row>
-            <el-col :span="item.config.col" class="p-r col">
+            <el-col :span="item.properties.col.value" class="p-r col">
               <div class="btn p-a">
                 <el-tooltip content="复制" placement="top" effect="light">
                   <el-button
@@ -28,11 +28,11 @@
               <el-form-item
                 class="item"
                 :class="{ active: activeIndex === index }"
-                :label="item.config.showLabel ? item.config.label : ''"
+                :label="item.properties.hideLabel.value ? '' : item.properties.label.value"
                 :label-width="
                   item.config.showLabel ? `${item.config.labelWidth}px` : ''
                 "
-                :required="item.config.required"
+                :required="item.properties.required.value"
                 @click="clickItem(item, index)"
               >
                 <template
@@ -45,22 +45,18 @@
                       item.type !== 'date-picker'
                     "
                     :is="`el-${item.type}`"
-                    v-model="item.config.value"
-                    :type="item.config.buttonType"
-                    v-bind="{ ...item.config, ...item.config.attrs }"
-                    @input="onChange(item)"
+                    v-model="item.properties.defaultValue.value"
+                    v-bind="item.attrs"
                     :style="{
                       ...item.style,
-                      width: !item.config.componentWidth.includes('%')
-                        ? `${item.config.componentWidth}px`
-                        : `${item.config.componentWidth}%`,
+                      width: item.properties.componentWidth.value,
                     }"
                   >
-                    <template #append v-if="item.config.append">
-                      {{ item.config.append }}
+                    <template #append v-if="item.properties.append && item.properties.append.value">
+                      {{ item.properties.append.value }}
                     </template>
-                    <template #prepend v-if="item.config.prepend">
-                      {{ item.config.prepend }}
+                    <template #prepend v-if="item.properties.prepend && item.properties.prepend.value">
+                      {{ item.properties.prepend.value }}
                     </template>
                     {{ item.config.text }}
                   </component>
@@ -113,7 +109,6 @@
                         ? `${item.config.componentWidth}px`
                         : `${item.config.componentWidth}%`,
                     }"
-                    @change="onChange(item)"
                   >
                   </component>
                   <component
@@ -129,7 +124,6 @@
                         ? `${item.config.componentWidth}px`
                         : `${item.config.componentWidth}%`,
                     }"
-                    @change="onChange(item)"
                   >
                   </component>
                   <component
@@ -149,7 +143,6 @@
                         ? `${item.config.componentWidth}px`
                         : `${item.config.componentWidth}%`,
                     }"
-                    @change="onChange(item)"
                   >
                   </component>
                   <template v-if="item.type === 'editor'">
@@ -157,13 +150,12 @@
                   </template>
                 </template>
                 <template
-                  v-if="item.config.children && item.config.children.length"
+                  v-if="item.properties.defaultValue.options && item.properties.defaultValue.options.length"
                 >
                   <component
                     :is="`el-${item.type}`"
-                    v-model="item.config.value"
+                    v-model="item.properties.defaultValue.value"
                     v-bind="item.attrs"
-                    @change="onChange(item)"
                     :style="{
                       ...item.style,
                       width: !item.config.componentWidth.includes('%')
@@ -172,11 +164,11 @@
                     }"
                   >
                     <template
-                      v-for="(child, i) in item.config.children"
+                      v-for="(child, i) in item.properties.defaultValue.options"
                       :key="`${100 + i}`"
                     >
                       <component
-                        v-if="child.type === 'select'"
+                        v-if="child.type === 'option'"
                         :is="`el-${child.type}`"
                         :label="child.label"
                         :value="child.value"
@@ -185,9 +177,9 @@
                         v-if="
                           child.type === 'checkbox' || child.type === 'radio'
                         "
-                        :is="`el-${item.config.btnType}`"
+                        :is="`el-${child.type}`"
                         :label="child.value"
-                        :border="item.config.border"
+                        :border="item.properties.border.value"
                         >{{ child.label }}</component
                       >
                     </template>
@@ -227,8 +219,8 @@ let activeIndex = computed(() => store.state.activeIndex)
 watchEffect(() => {
   componentList.value &&
     ((componentList.value as any) as any).map((item: Component) => {
-      item.attrs = cloneDeep(item.config)
-      delete item.attrs.children
+      // item.attrs = cloneDeep(item.config)
+      // delete item.attrs.children
       if (item.type === 'editor' && !e.value) {
         nextTick(() => {
           const editor = new E('#editor')
@@ -257,7 +249,7 @@ let clickItem = (item: Component, index: number) => {
 let copy = (item: Component) => {
   let i = cloneDeep(item)
   ;(componentList.value as any).push(i)
-  i.config.field = `field${(componentList.value as any).length + 100}`
+  i.properties.field.value = `field${(componentList.value as any).length + 100}`
   store.commit('setActiveIndex', (componentList.value as any).length - 1)
   store.commit('setComponentList', componentList.value as any)
   store.commit('setCurrentComponent', item)

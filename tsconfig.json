@@ -18,6 +18,9 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@componentAttr": [
+          "packages/Editor/components/componentAttrs/*"
       ]
     },
     "lib": [

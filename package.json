@@ -1,11 +1,11 @@
 {
   "name": "@xdapp/form-editor",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "description": "表单编辑器",
   "author": "cjw",
   "private": false,
   "main": "dist/xdEditor.common.js",
-  "module": "packages/index.ts",
+  "module": "src/index.ts",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",

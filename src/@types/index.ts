@@ -1,5 +1,13 @@
 import { CSSProperties } from "vue"
 
+interface iProperties {
+  [key: string]: any
+}
+
+interface iAttrs {
+  [key: string]: any
+}
+
 export interface Children {
   type: string,
   label?: any,
@@ -131,7 +139,7 @@ export interface Component {
   'month' | 'date' | 'dates' | 'wee' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange',
   // 左侧组件列表中显示的名字
   label: string,
-  properties: object,
+  properties: iProperties,
   // 左侧组件列表中显示的名字
   icon: string,
   // 组件属性配置
@@ -143,5 +151,5 @@ export interface Component {
   // 组件样式
   style?: CSSProperties,
   // 元素绑定的属性
-  attrs?: Config
+  attrs: iAttrs
 }
